@@ -56,13 +56,11 @@ def resultado_distrital(request):
     #TODO TU CODIGO AQUI
     
     #context['distrito'] = Distrito.objects.all() / De esta forma no me funciono, lo dejo comentado.
-    distrito = Distrito.objects.all()
+    distrito = Distrito.objects.all() #Nombre del distrito y tamaño del padron
+    #total_votantes = Distrito.objects.filter(Q(cantidad_votantes) & Q(nombre)
+        
     
     return render(request,'distrital.html',{'a':distrito})
 
 
 
-
-
- #pruebas = Prueba.objects.all()
-  #  return render(request, 'index.html', {'todos':pruebas})

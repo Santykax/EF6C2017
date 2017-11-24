@@ -39,7 +39,7 @@ class Candidato(models.Model):
     apellido = models.CharField(max_length=30)
     distrito = models.ForeignKey(Distrito)
 
-    
+
     def __str__(self):
         return 'Nombre: {} {} | Distrito: {}'.format(self.nombre, self.apellido, self.distrito.nombre)
 
