@@ -53,3 +53,5 @@ class Votos(models.Model):
     """
     candidato_votado = models.ForeignKey(Candidato, null=True, blank=True)
 
+    def __str__(self):
+        return 'Candidato Votado: {} {} | Distrito: {}'.format(self.candidato_votado.nombre, self.candidato_votado.apellido, self.candidato_votado.distrito.nombre)
