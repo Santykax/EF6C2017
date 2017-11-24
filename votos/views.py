@@ -53,7 +53,16 @@ def resultado_distrital(request):
     Candidato ganador
     """
     context={}
-
     #TODO TU CODIGO AQUI
+    
+    #context['distrito'] = Distrito.objects.all() / De esta forma no me funciono, lo dejo comentado.
+    distrito = Distrito.objects.all()
+    
+    return render(request,'distrital.html',{'a':distrito})
 
-    return render(request,'distrital.html',context)
+
+
+
+
+ #pruebas = Prueba.objects.all()
+  #  return render(request, 'index.html', {'todos':pruebas})

@@ -31,13 +31,15 @@ class Candidato(models.Model):
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
     forma la clase:
+    
      Decidi ponerle nombre y apellido por razones obvias, y un distrito
-    al cual postularse, por lo que esta linkeado con una clave foranea
+    al cual postularse, por lo que esta relacionado con una clave foranea
     """
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     distrito = models.ForeignKey(Distrito)
 
+    
     def __str__(self):
         return 'Nombre: {} {} | Distrito: {}'.format(self.nombre, self.apellido, self.distrito.nombre)
 
@@ -45,13 +47,16 @@ class Votos(models.Model):
     """
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
-    forma la clase:
-     En este hice que cada voto este relacionado con un candidato especifico, 
-    pero tiene la caracteristica de que puede ser nulo, osea que no exista 
-    dicho voto, o que este en blanco, osea que no se halla votado a nadie,
-    pero exista dicho voto, que halla constancia de que se realizo un voto
+    forma la clase:, self.candidato_votado.distrito.nombre
+    
+     En este hice que cada voto este relacionado con un candidato especifico
+    mediante una clave foranea, pero tiene la caracteristica de que puede
+    ser nulo, osea que no exista dicho voto, o que este en blanco, osea que
+    no se halla votado a nadie, pero exista dicho voto, que halla constancia 
+    de que se realizo un voto
     """
     candidato_votado = models.ForeignKey(Candidato, null=True, blank=True)
-
+    
+    
     def __str__(self):
-        return 'Candidato Votado: {} {} | Distrito: {}'.format(self.candidato_votado.nombre, self.candidato_votado.apellido, self.candidato_votado.distrito.nombre)
+        return 'Candidato: {} {} | Distrito: {} '.format(self.candidato_votado.nombre, self.candidato_votado.apellido, self.candidato_votado.distrito.nombre)
